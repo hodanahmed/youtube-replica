@@ -1,13 +1,20 @@
 import React from "react"
+import youtube from '../api/youtubeAPI';
 
 export default class SearchBar extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = { input: "" }
-    }
+	}
+	onInputSubmit = (input) => {
+		youtube.get('/search', {
+			params: {
+				q: `${ this.state.input }`
+	   }})
+	}
     onFormSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state.input)
+
     }
 
 	render() {
@@ -16,7 +23,7 @@ export default class SearchBar extends React.Component {
 			<div className="ui segment">
 				<div className="ui form">
 					<div className="field">
-						<form onSubmit={this.onFormSubmit}>
+						<form onSubmit={this.onInputSubmit}>
 							<label>Youtube Search</label>
 							<input
 								type="text"
