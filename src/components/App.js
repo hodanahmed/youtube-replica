@@ -1,5 +1,6 @@
 import React from "react"
 import SearchBar from "./SearchBar"
+import VideoItem from './VideoItem'
 import youtube from '../api/youtubeAPI';
 class App extends React.Component {
 	state = {videoList: ""}
@@ -18,7 +19,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="ui container" style={{ marginTop: "10px" }}>
-				<SearchBar onSubmit={this.onInputSubmit}/>
+				<SearchBar onSubmit={this.onInputSubmit} />
+				<VideoItem/>
 			</div>
 		)
 	}
