@@ -9,7 +9,7 @@ export default class SearchBar extends React.Component {
 
 		//Passing event object because it's necessary to use preventDefault function
 		// Asyn await is necessary to make GET requests to Youtube API
-	componentDidUpdate () {
+
 	onInputSubmit = async (e) => {
 		e.preventDefault()
 		const response = await youtube.get('/search', {
@@ -19,21 +19,17 @@ export default class SearchBar extends React.Component {
 		})
 		// Add the response data to videoList state
 		this.setState({ videoList: response.data.items })
-	}
-	mapOverVideoList = () => {
 		const videolist = this.state.videoList
+		// Map over each video item and set state for each video and video link
 		videolist.map((video) => {
 			const videoLink = `youtube.com/watch?v=${video.id.videoId}`
 			this.setState({ video })
 			this.setState({ videoLink: videoLink })
-			console.log(this.state.video + this.state.videoLink)
-			return <video src={this.state.videoLink}></video>
+			return console.log(this.state.video + this.state.videoLink)
 		})
-	}
 	}
 
 	render() {	
-
 		return (
 			<div className="ui segment">
 				<div className="ui form">
@@ -50,7 +46,6 @@ export default class SearchBar extends React.Component {
 						</form>
 					</div>
 				</div>
-				{this.mapOverVideoList()}
 			</div>
 		)
 	}
