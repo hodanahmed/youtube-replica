@@ -10,7 +10,6 @@ export default class SearchBar extends React.Component {
 	// Created this function to deal with the onSubmit event handler 
 	onFormSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.props.onSubmit)
 		// The value of props onSubmit is the onInputSubmit function in App.js
 		this.props.onSubmit(this.state.input)
 	}

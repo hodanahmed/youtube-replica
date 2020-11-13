@@ -1,6 +1,6 @@
 import React from "react"
 import SearchBar from "./SearchBar"
-import VideoItem from './VideoItem'
+import VideoList from './VideoList'
 import youtube from '../api/youtubeAPI';
 class App extends React.Component {
 	state = {videoList: ""}
@@ -17,10 +17,12 @@ class App extends React.Component {
 			this.setState({ videoList: response.data.items })
 		}
 	render() {
+		// Must first create a variable to pass state data to prop.
+		const videoList = this.state.videoList
 		return (
 			<div className="ui container" style={{ marginTop: "10px" }}>
 				<SearchBar onSubmit={this.onInputSubmit} />
-				<VideoItem/>
+				<VideoList videoList={videoList}/>
 			</div>
 		)
 	}
