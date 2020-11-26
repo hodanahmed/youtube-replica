@@ -1,16 +1,17 @@
 import React from "react";
 
-const VideoItem = (props) => {
+const VideoItem = ({ channelName, videoTitle, videoImage }) => {
+
   return (
     <div className="item">
-      <img className="ui avatar image" src={props.videoImage}></img>
+      <img className="ui medium image" src={videoImage}></img>
       <div className="content">
-        <a className="header">{props.videoName}</a>
+        <a className="header">{videoTitle}</a>
         <div className="description">
           <a>
-            <b>{props.videoChannelName}</b>
+            <b>
+              {channelName}</b>
           </a>
-          {props.videoDescription}
           Views, Publish time
         </div>
       </div>
