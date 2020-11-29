@@ -1,6 +1,7 @@
 import React from "react"
 import SearchBar from "./SearchBar"
 import VideoList from './VideoList'
+import VideoDetail from './VideoDetail'
 import youtube from '../api/youtubeAPI';
 class App extends React.Component {
 	state = {videoList: [], videoID: "", videoTitle: "", videoImg: "", channelName: ""}
@@ -15,6 +16,10 @@ class App extends React.Component {
 		})
 		// Add the response data to videoList state
 		this.setState({ videoList: response.data.items })
+	}
+
+	onVideoSelect = async () => {
+
 	}
 	
 	render() {
